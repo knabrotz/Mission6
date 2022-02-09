@@ -11,6 +11,7 @@ namespace Mission6.Models
         [Key]
         [Required]
         public int TaskId { get; set; }
+        
         [Required]
         public string Task { get; set; }
 
