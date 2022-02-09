@@ -18,6 +18,12 @@ namespace Mission6.Models
 
         protected override void OnModelCreating(ModelBuilder mb)
         {
+            mb.Entity<Category>().HasData(
+                new Category { CategoryId = 1, CategoryName = "Home" },
+                new Category { CategoryId = 2, CategoryName = "School" },
+                new Category { CategoryId = 3, CategoryName = "Work" },
+                new Category { CategoryId = 4, CategoryName = "Church" }
+            );
             //seeding the database
             mb.Entity<TaskModel>().HasData(
                 new TaskModel
@@ -39,12 +45,7 @@ namespace Mission6.Models
                     Completed = false
                 }
             );
-            mb.Entity<Category>().HasData(
-                new Category { CategoryId = 1, CategoryName = "Home" },
-                new Category { CategoryId = 2, CategoryName = "School" },
-                new Category { CategoryId = 3, CategoryName = "Work" },
-                new Category { CategoryId = 4, CategoryName = "Church" }
-            );
+            
         }
     }
 }
