@@ -16,6 +16,7 @@ namespace Mission6.Models
         [Required(ErrorMessage = "You must enter a Quadrant for the Task")]
         public int Quadrant { get; set; }
 
+        public int CategoryId { get; set; }
         public Category Category { get; set; }
 
         public bool Completed { get; set; }

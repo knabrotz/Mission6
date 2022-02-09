@@ -1,11 +1,12 @@
-﻿using System;
+﻿using Microsoft.EntityFrameworkCore;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
 namespace Mission6.Models
 {
-    public class TaskContext : DbContext
+    public class TaskContext :DbContext
     {
 
         public TaskContext (DbContextOptions <TaskContext> options) : base (options)
@@ -23,16 +24,16 @@ namespace Mission6.Models
                 {
                     Task = "Sweep the Floor",
                     Date = "02/11/22",
-                    Quadrant = "3",
-                    CategoryId = 0,
+                    Quadrant = 3,
+                    CategoryId = 2,
                     Completed = false
-                }
+                },
                 new TaskModel
                 {
                     Task = "Clean the Microwave",
                     Date = "02/11/22",
-                    Quadrant = "2",
-                    CategoryId = 0,
+                    Quadrant = 2,
+                    CategoryId = 1,
                     Completed = false
                 }
             );
