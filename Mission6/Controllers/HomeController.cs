@@ -11,11 +11,12 @@ namespace Mission6.Controllers
 {
     public class HomeController : Controller
     {
-        private readonly ILogger<HomeController> _logger;
+        
+        private TaskContext taskContext { get; set; }
 
-        public HomeController(ILogger<HomeController> logger)
+        public HomeController(TaskContext x)
         {
-            _logger = logger;
+            taskContext = x;
         }
 
         public IActionResult Index()
@@ -23,15 +24,70 @@ namespace Mission6.Controllers
             return View();
         }
 
-        public IActionResult Privacy()
+        [HttpGet]
+        public IActionResult Tasks()
         {
+            ViewBag.Categories = taskContext.Categories.ToList();
             return View();
         }
 
-        [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
-        public IActionResult Error()
+        [HttpPost]
+        public IActionResult Tasks(Task task)
         {
-            return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
+            if (ModelState.IsValid)
+            {
+                taskContext.Add(task);
+                taskContext.SaveChanges();
+
+                return RedirectToAction("TaskGrid");
+            }
+            else
+            {
+                ViewBag.Categories = taskContext.Categories.ToList();
+                return View(task);
+            }
+        }
+
+        public IActionResult TaskGrid()
+        {
+            var tasks = taskContext.Tasks
+                .Include(x => x.Task)
+                .ToList();
+
+            return View(tasks);
+        }
+
+        [HttpGet]
+        public IActionResult Edit(int taskid)
+        {
+            ViewBag.Categories = taskContext.Categories.ToList();
+
+            var task = taskContext.Tasks.Single(x => x.TaskId == taskid);
+            return View("Tasks", task);
+        }
+
+        [HttpPost]
+        public IActionResult Edit(Task task)
+        {
+            taskContext.Update(task);
+            taskContext.SaveChanges();
+
+            return RedirectToAction("TaskGrid");
+        }
+
+        [HttpGet]
+        public IActionResult Delete(int taskid)
+        {
+            var task = taskContext.Tasks.Single(x => x.TaskId == taskid);
+            return View(task);
+        }
+
+        [HttpPost]
+        public IActionResult Delete(Task task)
+        {
+            taskContext.Tasks.Remove(task);
+            taskContext.SaveChanges();
+            return RedirectToAction("TaskGrid");
         }
     }
 }
