@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
-//using Mission6.Models;
+using Mission6.Models;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -27,30 +28,30 @@ namespace Mission6.Controllers
         [HttpGet]
         public IActionResult Tasks()
         {
-            ViewBag.Categories = taskContext.Categories.ToList();
+            ViewBag.Categories = taskContext.categories.ToList();
             return View();
         }
 
         [HttpPost]
-        public IActionResult Tasks(Task task)
+        public IActionResult Tasks(TaskModel taskEntry)
         {
             if (ModelState.IsValid)
             {
-                taskContext.Add(task);
+                taskContext.Add(taskEntry);
                 taskContext.SaveChanges();
 
                 return RedirectToAction("TaskGrid");
             }
             else
             {
-                ViewBag.Categories = taskContext.Categories.ToList();
-                return View(task);
+                ViewBag.Categories = taskContext.categories.ToList();
+                return View(taskEntry);
             }
         }
 
         public IActionResult TaskGrid()
         {
-            var tasks = taskContext.Tasks
+            var tasks = taskContext.responses
                 .Include(x => x.Task)
                 .ToList();
 
@@ -60,16 +61,16 @@ namespace Mission6.Controllers
         [HttpGet]
         public IActionResult Edit(int taskid)
         {
-            ViewBag.Categories = taskContext.Categories.ToList();
+            ViewBag.Categories = taskContext.categories.ToList();
 
-            var task = taskContext.Tasks.Single(x => x.TaskId == taskid);
+            var task = taskContext.responses.Single(x => x.TaskId == taskid);
             return View("Tasks", task);
         }
 
         [HttpPost]
-        public IActionResult Edit(Task task)
+        public IActionResult Edit(TaskModel taskEntry)
         {
-            taskContext.Update(task);
+            taskContext.Update(taskEntry);
             taskContext.SaveChanges();
 
             return RedirectToAction("TaskGrid");
@@ -78,14 +79,14 @@ namespace Mission6.Controllers
         [HttpGet]
         public IActionResult Delete(int taskid)
         {
-            var task = taskContext.Tasks.Single(x => x.TaskId == taskid);
+            var task = taskContext.responses.Single(x => x.TaskId == taskid);
             return View(task);
         }
 
         [HttpPost]
-        public IActionResult Delete(Task task)
+        public IActionResult Delete(TaskModel taskEntry)
         {
-            taskContext.Tasks.Remove(task);
+            taskContext.responses.Remove(taskEntry);
             taskContext.SaveChanges();
             return RedirectToAction("TaskGrid");
         }
