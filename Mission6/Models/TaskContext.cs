@@ -31,6 +31,7 @@ namespace Mission6.Models
                 },
                 new TaskModel
                 {
+                    TaskId = 2,
                     Task = "Clean the Microwave",
                     Date = "02/11/22",
                     Quadrant = 2,
