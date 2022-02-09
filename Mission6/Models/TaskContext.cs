@@ -22,6 +22,7 @@ namespace Mission6.Models
             mb.Entity<TaskModel>().HasData(
                 new TaskModel
                 {
+                    TaskId = 1,
                     Task = "Sweep the Floor",
                     Date = "02/11/22",
                     Quadrant = 3,

@@ -10,6 +10,7 @@ namespace Mission6.Models
     {
         [Key]
         [Required]
+        public int TaskId { get; set; }
         public string Task { get; set; }
 
         public string Date { get; set; }
