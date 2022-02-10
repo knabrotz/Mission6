@@ -1,0 +1,50 @@
+@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Add and Edit Page</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+</head>
+<body>
+    <h1>Add/Edit Page</h1>
+
+    <h2>Form</h2>
+    <form>
+        <label for="taskName">Task Name:</label><br />
+        <input type="text" id="txtName" name="taskName" /><br />
+
+        <label for="dueDate">Due Date:</label>
+        <input type="date" id="dueDate" name="dueDate" /><br />
+
+        <label for="quadrant">Quadrant:</label>
+        <select name="quadrant" id="quadrant">
+            <option value="Quadrant1">Quadrant 1: Urgent and Important</option>"
+            <option value="Quadrant2">Quadrant 2: Not Urgent and Important</option>"
+            <option value="Quadrant3">Quadrant 3: Urgent and Not Important</option>"
+            <option value="Quadrant4">Quadrant 4: Not Urgent and Not Important</option>"
+        </select>
+
+        <label for="category">Category</label>
+        <select name="category" id="category">
+            <option value="Home">Home</option>"
+            <option value="School">School</option>"
+            <option value="Work">Work</option>"
+            <option value="Church">Church</option>"
+        </select>
+
+        <label for="completed">Completed</label><br />
+        <input type="checkbox" id="completed" name="completed" value="complete" /><br />
+
+        <input type="submit" value="submit" />
+    </form>
+
+</body>
+</html>
