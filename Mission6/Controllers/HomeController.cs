@@ -52,7 +52,7 @@ namespace Mission6.Controllers
         public IActionResult TaskGrid()
         {
             var tasks = taskContext.responses
-                .Include(x => x.Task)
+                .Include(x => x.Category)
                 .ToList();
 
             return View(tasks);
