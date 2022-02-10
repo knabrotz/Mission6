@@ -1,0 +1,18 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+    ViewData["Title"] = "Delete Task";
+}
+@model TaskModel
+@*delete record*@
+
+<h3>Confirm Deletion</h3>
+<p>Are you sure you want to delete @Model.Task</p>
+<form method="post" asp-controller="Home" asp-action="Delete">
+    <button type="submit">Delete</button>
+    <a asp-controller="Home" asp-action="Task" class="btn btn-primary">Cancel</a>
+
+    <input type="hidden" asp-for="TaskId" />
+</form>
+

@@ -1,0 +1,82 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+
+
+@{
+    ViewData["Title"] = "Quadrants?";
+}
+
+@model List<TaskModel>
+
+<div class="containter">
+    <div class="row">
+
+        <div class="col">
+            <h3>Urgent/Important (Quad1)</h3>
+            @foreach (var x in Model)
+            {
+                if (@x.Completed == false){
+                    if (@x.Quadrant == 1){
+                        <ul>
+                            <li>@x.Task, Due Date: @x.Date, Category: @x.Category</li>
+                            <li><a asp-controller="Home" asp-action="Edit" asp-route-movieid="@x.TaskId">Edit</a></li>
+                            <li><a asp-controller="Home" asp-action="Delete" asp-route-movieid="@x.TaskId">Delete</a></li>
+                        </ul>
+                    }
+                }
+            }
+        </div>
+
+        <div class="col">
+            <h3>Not Urgent/Important (Quad2)</h3>
+            @foreach (var x in Model)
+            {
+                if (@x.Completed == false){
+                    if (@x.Quadrant == 2){
+                        <ul>
+                            <li>@x.Task, Due Date: @x.Date, Category: @x.Category</li>
+                            <li><a asp-controller="Home" asp-action="Edit" asp-route-movieid="@x.TaskId">Edit</a></li>
+                            <li><a asp-controller="Home" asp-action="Delete" asp-route-movieid="@x.TaskId">Delete</a></li>
+                        </ul>
+                    }
+                }
+            }
+        </div>
+    </div>
+    <div class="row">
+
+        <div class="col">
+            <h3>Urgent/Not Important (Quad3)</h3>
+            @foreach (var x in Model)
+            {
+                if (@x.Completed == false){
+                    if (@x.Quadrant == 3){
+                        <ul>
+                            <li>@x.Task, Due Date: @x.Date, Category: @x.Category</li>
+                            <li><a asp-controller="Home" asp-action="Edit" asp-route-movieid="@x.TaskId">Edit</a></li>
+                            <li><a asp-controller="Home" asp-action="Delete" asp-route-movieid="@x.TaskId">Delete</a></li>
+                        </ul>
+                    }
+                }
+            }
+        </div>
+
+        <div class="col">
+            <h3>Not Urgent/Important (Quad4)</h3>
+            @foreach (var x in Model)
+            {
+                if (@x.Completed == false){
+                    if (@x.Quadrant == 4){
+                        <ul>
+                            <li>@x.Task, Due Date: @x.Date, Category: @x.Category</li>
+                            <li><a asp-controller="Home" asp-action="Edit" asp-route-movieid="@x.TaskId">Edit</a></li>
+                            <li><a asp-controller="Home" asp-action="Delete" asp-route-movieid="@x.TaskId">Delete</a></li>
+                        </ul>
+                    }
+                }
+            }
+        </div>
+    </div>
+</div>
+   
