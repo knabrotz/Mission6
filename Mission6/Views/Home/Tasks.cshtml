@@ -31,10 +31,10 @@
 
         <label asp-for="Quadrant">Quadrant:</label>
         <select asp-for="Quadrant" id="quadrant">
-            <option value="Quadrant1">Quadrant 1: Urgent and Important</option>"
-            <option value="Quadrant2">Quadrant 2: Not Urgent and Important</option>"
-            <option value="Quadrant3">Quadrant 3: Urgent and Not Important</option>"
-            <option value="Quadrant4">Quadrant 4: Not Urgent and Not Important</option>"
+            <option value="1">Quadrant 1: Urgent and Important</option>"
+            <option value="2">Quadrant 2: Not Urgent and Important</option>"
+            <option value="3">Quadrant 3: Urgent and Not Important</option>"
+            <option value="4">Quadrant 4: Not Urgent and Not Important</option>"
         </select><br />
 
 
@@ -56,6 +56,6 @@
 
         <button type="submit">Submit</button>
     </form>
-
+    <div asp-validation-summary="All"></div>
 </body>
 </html>
