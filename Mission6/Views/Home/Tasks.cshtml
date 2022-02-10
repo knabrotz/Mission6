@@ -1,0 +1,61 @@
+@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+    ViewData["Title"] = "Task Entry";
+
+}
+
+@model Mission6.Models.TaskModel
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Add and Edit Page</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+</head>
+<body>
+    <h1>Add/Edit Page</h1>
+
+    <h2>Form</h2>
+
+    <form method="post">
+        <label asp-for="Task">Task Name:</label><br />
+        <input asp-for="Task" type="text" /><br />
+
+        <label asp-for="Date">Due Date:</label>
+        <input asp-for="Date" type="Date" /><br />
+
+        <label asp-for="Quadrant">Quadrant:</label>
+        <select asp-for="Quadrant" id="quadrant">
+            <option value="Quadrant1">Quadrant 1: Urgent and Important</option>"
+            <option value="Quadrant2">Quadrant 2: Not Urgent and Important</option>"
+            <option value="Quadrant3">Quadrant 3: Urgent and Not Important</option>"
+            <option value="Quadrant4">Quadrant 4: Not Urgent and Not Important</option>"
+        </select><br />
+
+
+        <label asp-for="CategoryId">Category:</label>
+        <select asp-for="CategoryId">
+            <option value="">Select a Category</option>
+            @foreach (Category c in ViewBag.Categories)
+            {
+            <option value="@c.CategoryId">@c.CategoryName</option>
+            }
+        </select>
+
+        <br />
+
+
+
+        <label asp-for="Completed">Completed</label>
+        <input asp-for="Completed" type="checkbox" /><br />
+
+        <button type="submit">Submit</button>
+    </form>
+
+</body>
+</html>
