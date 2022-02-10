@@ -13,70 +13,138 @@
     <div class="row">
 
         <div class="col">
-            <h3>Urgent/Important (Quad1)</h3>
-            @foreach (var x in Model)
-            {
-                if (@x.Completed == false){
-                    if (@x.Quadrant == 1){
-                        <ul>
-                            <li>@x.Task, Due Date: @x.Date, Category: @x.Category.CategoryName</li>
-                            <li><a asp-controller="Home" asp-action="Edit" asp-route-taskid="@x.TaskId">Edit</a></li>
-                            <li><a asp-controller="Home" asp-action="Delete" asp-route-taskid="@x.TaskId">Delete</a></li>
-                        </ul>
+            <h3>Urgent, Important</h3>
+            <table class="table table-bordered table-striped">
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Due</th>
+                        <th>Category</th>
+                        <th></th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var x in Model)
+                    {
+                        if (@x.Completed == false)
+                        {
+                            if (@x.Quadrant == 1)
+                            {
+                                <tr>
+                                    <td>@x.Task</td>
+                                    <td>@x.Date</td>
+                                    <td>@x.Category.CategoryName</td>
+                                    <td><a asp-controller="Home" asp-action="Edit" asp-route-taskid="@x.TaskId">Edit</a></td>
+                                    <td><a asp-controller="Home" asp-action="Delete" asp-route-taskid="@x.TaskId">Delete</a></td>
+                                </tr>
+                            }
+                        }
                     }
-                }
-            }
+                </tbody>
+            </table>
+            
         </div>
 
         <div class="col">
-            <h3>Not Urgent/Important (Quad2)</h3>
-            @foreach (var x in Model)
-            {
-                if (@x.Completed == false){
-                    if (@x.Quadrant == 2){
-                        <ul>
-                            <li>@x.Task, Due Date: @x.Date, Category: @x.Category.CategoryName</li>
-                            <li><a asp-controller="Home" asp-action="Edit" asp-route-taskid="@x.TaskId">Edit</a></li>
-                            <li><a asp-controller="Home" asp-action="Delete" asp-route-taskid="@x.TaskId">Delete</a></li>
-                        </ul>
+            <h3>Not Urgent, Important </h3>
+            <table class="table table-bordered table-striped">
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Due</th>
+                        <th>Category</th>
+                        <th></th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var x in Model)
+                    {
+                        if (@x.Completed == false)
+                        {
+                            if (@x.Quadrant == 2)
+                            {
+                                <tr>
+                                    <td>@x.Task</td>
+                                    <td>@x.Date</td>
+                                    <td>@x.Category.CategoryName</td>
+                                    <td><a asp-controller="Home" asp-action="Edit" asp-route-taskid="@x.TaskId">Edit</a></td>
+                                    <td><a asp-controller="Home" asp-action="Delete" asp-route-taskid="@x.TaskId">Delete</a></td>
+                                </tr>
+                            }
+                        }
                     }
-                }
-            }
+                </tbody>
+            </table>
         </div>
     </div>
     <div class="row">
 
         <div class="col">
-            <h3>Urgent/Not Important (Quad3)</h3>
-            @foreach (var x in Model)
-            {
-                if (@x.Completed == false){
-                    if (@x.Quadrant == 3){
-                        <ul>
-                            <li>@x.Task, Due Date: @x.Date, Category: @x.Category.CategoryName</li>
-                            <li><a asp-controller="Home" asp-action="Edit" asp-route-taskid="@x.TaskId">Edit</a></li>
-                            <li><a asp-controller="Home" asp-action="Delete" asp-route-taskid="@x.TaskId">Delete</a></li>
-                        </ul>
+            <h3>Urgent, Not Important</h3>
+            <table class="table table-bordered table-striped">
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Due</th>
+                        <th>Category</th>
+                        <th></th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var x in Model)
+                    {
+                        if (@x.Completed == false)
+                        {
+                            if (@x.Quadrant == 3)
+                            {
+                                <tr>
+                                    <td>@x.Task</td>
+                                    <td>@x.Date</td>
+                                    <td>@x.Category.CategoryName</td>
+                                    <td><a asp-controller="Home" asp-action="Edit" asp-route-taskid="@x.TaskId">Edit</a></td>
+                                    <td><a asp-controller="Home" asp-action="Delete" asp-route-taskid="@x.TaskId">Delete</a></td>
+                                </tr>
+                            }
+                        }
                     }
-                }
-            }
+                </tbody>
+            </table>
         </div>
 
         <div class="col">
-            <h3>Not Urgent/Important (Quad4)</h3>
-            @foreach (var x in Model)
-            {
-                if (@x.Completed == false){
-                    if (@x.Quadrant == 4){
-                        <ul>
-                            <li>@x.Task, Due Date: @x.Date, Category: @x.Category.CategoryName</li>
-                            <li><a asp-controller="Home" asp-action="Edit" asp-route-taskid="@x.TaskId">Edit</a></li>
-                            <li><a asp-controller="Home" asp-action="Delete" asp-route-taskid="@x.TaskId">Delete</a></li>
-                        </ul>
+            <h3>Not Urgent, Not Important</h3>
+            <table class="table table-bordered table-striped">
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Due</th>
+                        <th>Category</th>
+                        <th></th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var x in Model)
+                    {
+                        if (@x.Completed == false)
+                        {
+                            if (@x.Quadrant == 4)
+                            {
+                                <tr>
+                                    <td>@x.Task</td>
+                                    <td>@x.Date</td>
+                                    <td>@x.Category.CategoryName</td>
+                                    <td><a asp-controller="Home" asp-action="Edit" asp-route-taskid="@x.TaskId">Edit</a></td>
+                                    <td><a asp-controller="Home" asp-action="Delete" asp-route-taskid="@x.TaskId">Delete</a></td>
+                                </tr>
+                            }
+                        }
                     }
-                }
-            }
+                </tbody>
+            </table>
         </div>
-    </div>
 </div>
    
