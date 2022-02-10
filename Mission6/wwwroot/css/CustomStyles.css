@@ -9,3 +9,8 @@ nav {
 table{
     background-color: white;
 }
+
+.center{
+    width: 40%;
+    margin: auto;
+}
