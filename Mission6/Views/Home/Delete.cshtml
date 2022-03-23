@@ -10,7 +10,7 @@
 <h3>Confirm Deletion</h3>
 <p>Are you sure you want to delete @Model.Task</p>
 <form method="post" asp-controller="Home" asp-action="Delete">
-    <button type="submit">Delete</button>
+    <button type="submit" class="btn btn-secondary">Delete</button>
     <a asp-controller="Home" asp-action="Task" class="btn btn-primary">Cancel</a>
 
     <input type="hidden" asp-for="TaskId" />

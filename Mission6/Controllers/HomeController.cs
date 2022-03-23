@@ -22,7 +22,7 @@ namespace Mission6.Controllers
 
         public IActionResult Index()
         {
-            return View();
+            return RedirectToAction("TaskGrid");
         }
 
         [HttpGet]
