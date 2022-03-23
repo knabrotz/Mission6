@@ -1,0 +1,16 @@
+﻿body {
+    background-color: lightgray;
+}
+
+nav {
+    background-color: lightblue;
+}
+
+table{
+    background-color: white;
+}
+
+.center{
+    width: 40%;
+    margin: auto;
+}
